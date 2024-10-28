@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính chỉ số BMI</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        h1 { color: #333; }
+        form { display: inline-block; text-align: left; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; }
+        label, input { display: block; margin: 10px 0; }
+        input[type="number"] { padding: 8px; width: 100%; }
+        button { padding: 10px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        #result { margin-top: 20px; font-size: 1.2em; color: #333; }
+    </style>
+</head>
+<body>
+    <h1>Chỉ số BMI Calculator</h1>
+    <form method="POST">
+        <label for="weight">Cân nặng (kg):</label>
+        <input type="number" id="weight" name="weight" step="0.1" required>
+        
+        <label for="height">Chiều cao (m):</label>
+        <input type="number" id="height" name="height" step="0.01" required>
+        
+        <button type="submit">Tính BMI</button>
+    </form>
+
+    {% if bmi is not none %}
+        <div id="result">
+            <p><strong>BMI của bạn là:</strong> {{ bmi|round(2) }}</p>
+            <p><strong>Tình trạng cơ thể:</strong> {{ status }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>

@@ -10,13 +10,9 @@ def index():
         try:
             weight = float(request.form['weight'])
             height = float(request.form['height'])
-            
-            if height <= 0:
-                raise ValueError("Chiều cao phải lớn hơn 0")
-            
             bmi = weight / (height ** 2)
 
-            # Điều chỉnh lại điều kiện cho tình trạng cơ thể
+            # Xác định tình trạng cơ thể dựa trên BMI
             if bmi < 16:
                 status = "Gầy độ III"
             elif 16 <= bmi < 17:
